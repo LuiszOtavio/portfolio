@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, type Lang } from '../i18n/utils';
+import About from './About.astro';
 import Hero from './Hero.astro';
+import Timeline from './Timeline.astro';
 
 interface Props {
   lang: Lang;
@@ -14,5 +16,7 @@ const t = useTranslations(lang);
 <BaseLayout lang={lang} title={t('meta.title')} description={t('meta.description')}>
   <main>
     <Hero lang={lang} />
+    <About lang={lang} />
+    <Timeline lang={lang} />
   </main>
 </BaseLayout>

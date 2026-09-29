@@ -1,0 +1,15 @@
+---
+import { useTranslations, type Lang } from '../i18n/utils';
+import Section from './Section.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Section id="about" title={t('nav.about')}>
+  <p class="max-w-3xl text-lg leading-relaxed text-muted">{t('about.body')}</p>
+</Section>

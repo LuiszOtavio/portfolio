@@ -12,6 +12,9 @@ export const pt = {
   'hero.github': 'GitHub',
   'hero.newTab': '(abre em nova aba)',
 
+  'about.body':
+    'Desempenho papel de liderança técnica no time quando necessário, contribuindo para o alinhamento e a tomada de decisões, e uso ferramentas de Inteligência Artificial no dia a dia para otimizar fluxos internos e desenvolver soluções. Formado em Análise e Desenvolvimento de Sistemas pela Fatec Americana, estou em transição para DevOps/Cloud, com desenvolvimento contínuo em Linux, Git, redes TCP/IP e Azure.',
+
   'nav.label': 'Navegação principal',
   'nav.about': 'Sobre',
   'nav.experience': 'Experiência',
