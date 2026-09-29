@@ -16,11 +16,7 @@ const year = new Date().getFullYear();
   <div
     class="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6"
   >
-    <p>
-      © {year} {profile.name}
-      <span class="hidden sm:inline" aria-hidden="true"> · </span>
-      <span class="mt-1 block font-mono text-xs sm:mt-0 sm:inline">{t('footer.builtWith')}</span>
-    </p>
+    <p>© {year} {profile.name}</p>
     <a
       href="#top"
       class="inline-flex items-center gap-1.5 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"

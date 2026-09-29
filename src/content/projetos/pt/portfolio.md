@@ -4,7 +4,7 @@ summary: Site bilíngue (PT/EN) e estático, feito com Astro e Tailwind, com dep
 stack: [Astro, Tailwind CSS, TypeScript, Azure Static Web Apps]
 order: 1
 demo: /
-image: ../../../img/projetos/portfolio-pt.png
+image: ../../../img/projetos/portfolio-home-pt.png
 imageAlt: Página inicial do portfólio, com o nome Luis Otávio Batista, a headline e os botões Baixar CV, Contato e GitHub sobre fundo escuro
 ---
 

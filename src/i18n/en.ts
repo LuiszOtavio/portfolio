@@ -37,7 +37,6 @@ export const en: Record<TranslationKey, string> = {
     "I'm open to opportunities in DevOps, Cloud and automation. The fastest way to reach me is by email or LinkedIn.",
   'contact.cv': 'Résumé',
 
-  'footer.builtWith': 'Built with Astro + Tailwind',
   'footer.backToTop': 'Back to top',
 
   'status.studying': 'studying',
