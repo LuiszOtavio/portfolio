@@ -3,11 +3,11 @@ export const pt = {
   'meta.description':
     'Suporte & Automação em Cloud · Python · UiPath · Azure — em transição para DevOps',
 
-  'hero.role': 'Analista de Suporte @ Biti9',
+  'hero.role': 'Analista de Suporte',
   'hero.headline': 'Suporte & Automação em Cloud · Python · UiPath · Azure —',
   'hero.headlineHighlight': 'em transição para DevOps',
   'hero.valueProp':
-    'Mantenho automações críticas funcionando em produção para empresas dos setores agroindustrial, financeiro e de infraestrutura — do diagnóstico de VPN e Azure até a correção no código.',
+    'Atuo no suporte e manutenção de automações RPA (Python e UiPath) em produção para clientes corporativos em ambientes Azure, com troubleshooting de infraestrutura e conectividade VPN para garantir a continuidade operacional de automações críticas nos setores agroindustrial, financeiro e de infraestrutura.',
   'hero.contact': 'Contato',
   'hero.github': 'GitHub',
   'hero.newTab': '(abre em nova aba)',

@@ -1,15 +1,8 @@
-import type { Lang } from '../i18n/utils';
-
-/** Contact data and links shared by both languages (source: docs/briefing.md). */
+/** Personal data and links shared by both languages (source: docs/briefing.md). */
 export const profile = {
   name: 'Luis Otávio Batista',
-  email: 'lovbatista10@gmail.com',
   github: 'https://github.com/LuiszOtavio',
-  // The file name has spaces and an accent, so the URL must be percent-encoded.
-  cv: {
-    pt: `/cv/${encodeURIComponent('Curriculo Luis Otávio.pdf')}`,
-    // TODO: point to the EN PDF once it exists (briefing: [PENDENTE])
-    en: `/cv/${encodeURIComponent('Curriculo Luis Otávio.pdf')}`,
-  } satisfies Record<Lang, string>,
+  // public/cv/Curriculo Luis Otávio.pdf — spaces and accent must be percent-encoded.
+  cv: `/cv/${encodeURIComponent('Curriculo Luis Otávio.pdf')}`,
   cvDownloadName: 'Curriculo-Luis-Otavio-Batista.pdf',
 } as const;

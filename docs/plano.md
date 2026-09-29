@@ -27,6 +27,7 @@ Cada etapa termina com `npm run build` passando, uma verificação no navegador 
    → *No navegador:* alternar o tema, trocar para `/en/` e ver os textos do header mudarem.
 3. ✅ **[CONCLUÍDA em 2026-09-29]** **Hero:** `Hero.astro` com o nome, a headline e a proposta de valor (PT/EN), mais os botões [Baixar CV] [Contato] [GitHub]. Tudo cabe na primeira dobra em 375px.
    → *No navegador:* a primeira dobra completa nas duas línguas.
+   *Ajustes validados:* cargo sem o nome da empresa; o parágrafo usa o resumo do CV em vez da proposta de valor do briefing; CV em `public/cv/Curriculo Luis Otávio.pdf`.
 4. **Sobre + Experiência:** `About.astro` e `Timeline.astro` (Biti9, Fev/2025 – atual, com os 5 bullets do briefing). O texto em inglês sai da tradução fiel do briefing.
    → *No navegador:* as seções renderizadas e a timeline legível no mobile.
 5. **Skills + Formação/Certificações/Idiomas:** `SkillGroup.astro`, com os grupos por categoria e um selo visual "em estudo" para Terraform, CI/CD e Kubernetes. `Education.astro` traz a Fatec, a ETEC, o TOEIC 820, o inglês avançado e AZ-900/AZ-104 "em preparação".

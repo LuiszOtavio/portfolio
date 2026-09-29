@@ -5,11 +5,11 @@ export const en: Record<TranslationKey, string> = {
   'meta.description':
     'Automation & Cloud Support · Python · UiPath · Azure — transitioning into DevOps',
 
-  'hero.role': 'Support Analyst @ Biti9',
+  'hero.role': 'Support Analyst',
   'hero.headline': 'Automation & Cloud Support · Python · UiPath · Azure —',
   'hero.headlineHighlight': 'transitioning into DevOps',
   'hero.valueProp':
-    'I keep business-critical automations running in production for agribusiness, financial and infrastructure companies — from VPN and Azure diagnostics down to the code fix.',
+    'I support and maintain RPA automations (Python and UiPath) in production for corporate clients on Azure, troubleshooting infrastructure and VPN connectivity to keep business-critical automations running for agribusiness, financial and infrastructure companies.',
   'hero.contact': 'Contact',
   'hero.github': 'GitHub',
   'hero.newTab': '(opens in a new tab)',
