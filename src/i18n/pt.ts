@@ -7,7 +7,7 @@ export const pt = {
   'hero.headline': 'Suporte & Automação em Cloud · Python · UiPath · Azure —',
   'hero.headlineHighlight': 'em transição para DevOps',
   'hero.valueProp':
-    'Atuo no suporte e manutenção de automações RPA (Python e UiPath) em produção para clientes corporativos em ambientes Azure, com troubleshooting de infraestrutura e conectividade VPN para garantir a continuidade operacional de automações críticas nos setores agroindustrial, financeiro e de infraestrutura.',
+    'Mantenho automações RPA em Python rodando em produção para clientes corporativos, com troubleshooting de infraestrutura e conectividade VPN para garantir a continuidade operacional de automações críticas nos setores agroindustrial, financeiro e de infraestrutura.',
   'hero.contact': 'Contato',
   'hero.github': 'GitHub',
   'hero.newTab': '(abre em nova aba)',

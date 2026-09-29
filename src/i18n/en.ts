@@ -9,7 +9,7 @@ export const en: Record<TranslationKey, string> = {
   'hero.headline': 'Automation & Cloud Support · Python · UiPath · Azure —',
   'hero.headlineHighlight': 'transitioning into DevOps',
   'hero.valueProp':
-    'I support and maintain RPA automations (Python and UiPath) in production for corporate clients on Azure, troubleshooting infrastructure and VPN connectivity to keep business-critical automations running for agribusiness, financial and infrastructure companies.',
+    'I keep Python RPA automations running in production for corporate clients, troubleshooting infrastructure and VPN connectivity to ensure the operational continuity of business-critical automations for agribusiness, financial and infrastructure companies.',
   'hero.contact': 'Contact',
   'hero.github': 'GitHub',
   'hero.newTab': '(opens in a new tab)',
