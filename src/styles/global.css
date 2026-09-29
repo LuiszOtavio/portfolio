@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+/* `light:` variant, e.g. `light:hidden`, driven by <html data-theme="light"> */
+@custom-variant light (&:where([data-theme='light'], [data-theme='light'] *));
+
 /*
  * Design tokens.
  * Dark is the default theme; light is applied via <html data-theme="light">.
@@ -44,6 +47,10 @@
 }
 
 @layer base {
+  html {
+    scroll-padding-top: 5rem; /* keep anchored sections clear of the sticky header */
+  }
+
   body {
     @apply bg-bg text-text font-sans antialiased;
   }

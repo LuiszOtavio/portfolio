@@ -1,0 +1,35 @@
+---
+import { getLangFromUrl, getLocalizedPath, languages, type Lang } from '../i18n/utils';
+
+interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+const current = getLangFromUrl(Astro.url);
+const langs = Object.keys(languages) as Lang[];
+---
+
+<nav aria-label={label} class="flex items-center font-mono text-xs">
+  {
+    langs.map((lang, i) => (
+      <>
+        {i > 0 && <span class="text-border" aria-hidden="true">/</span>}
+        {lang === current ? (
+          <span aria-current="true" class="px-1.5 py-1 font-medium text-primary">
+            {languages[lang].label}
+          </span>
+        ) : (
+          <a
+            href={getLocalizedPath(Astro.url, lang)}
+            hreflang={languages[lang].htmlLang}
+            lang={languages[lang].htmlLang}
+            class="rounded px-1.5 py-1 text-muted transition-colors hover:text-text focus-visible:outline-2 focus-visible:outline-primary"
+          >
+            {languages[lang].label}
+          </a>
+        )}
+      </>
+    ))
+  }
+</nav>

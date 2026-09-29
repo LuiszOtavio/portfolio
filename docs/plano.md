@@ -23,7 +23,7 @@ Cada etapa termina com `npm run build` passando, uma verificação no navegador 
 1. ✅ **[CONCLUÍDA em 2026-09-29]** **Esqueleto:** crio o projeto Astro com Tailwind v4, os tokens de cor e fonte em `src/styles/global.css` e um `BaseLayout.astro` com `<html lang>`, as meta tags básicas e as fontes. Crio também o `.gitignore`.
    → *No navegador:* uma página em branco com fundo escuro e o nome na fonte certa.
    *Nota:* o projeto usa Astro 7.3.5 + Tailwind 4.3.3, o que exige Node 22.12 ou superior (o ambiente está com Node 24).
-2. **Header + tema + idioma:** `Header.astro` com o nome, os links âncora, o seletor PT/EN, o botão de tema e o botão "Baixar CV" sempre visível. Configuro o i18n e crio `src/pages/en/index.astro`.
+2. ✅ **[CONCLUÍDA em 2026-09-29]** **Header + tema + idioma:** `Header.astro` com o nome, os links âncora, o seletor PT/EN, o botão de tema e o botão "Baixar CV" sempre visível. Configuro o i18n e crio `src/pages/en/index.astro`.
    → *No navegador:* alternar o tema, trocar para `/en/` e ver os textos do header mudarem.
 3. **Hero:** `Hero.astro` com o nome, a headline e a proposta de valor (PT/EN), mais os botões [Baixar CV] [Contato] [GitHub]. Tudo cabe na primeira dobra em 375px.
    → *No navegador:* a primeira dobra completa nas duas línguas.

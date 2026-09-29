@@ -1,22 +1,33 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
+import { languages, type Lang } from '../i18n/utils';
 
 interface Props {
   title: string;
   description: string;
-  lang?: 'pt-BR' | 'en';
+  lang: Lang;
 }
 
-const { title, description, lang = 'pt-BR' } = Astro.props;
+const { title, description, lang } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={lang} data-theme="dark">
+<html lang={languages[lang].htmlLang} data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    <!-- Apply the saved theme before first paint to avoid a flash of the wrong theme. -->
+    <script is:inline>
+      try {
+        if (localStorage.getItem('theme') === 'light') {
+          document.documentElement.dataset.theme = 'light';
+        }
+      } catch {}
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +37,7 @@ const { title, description, lang = 'pt-BR' } = Astro.props;
     />
   </head>
   <body class="min-h-screen">
+    <Header lang={lang} />
     <slot />
   </body>
 </html>
