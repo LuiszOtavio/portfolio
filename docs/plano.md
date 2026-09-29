@@ -1,5 +1,7 @@
 # Plano — Portfólio Luis Otávio (Astro + Tailwind)
 
+> O que depende do Luis (CV em EN, textos de projeto, deploy...) fica em [`docs/pendencias.md`](pendencias.md). Atualize esse arquivo sempre que surgir uma nova pendência.
+
 ## Contexto
 O repositório só tem `CLAUDE.md` e `docs/briefing.md` (o git já foi iniciado, mas ainda não tem nenhum commit). O objetivo é um site estático bilíngue (PT em `/`, EN em `/en/`) para mandar a recrutadores de vagas DevOps/Cloud júnior. O recrutador precisa entender o perfil em 30 segundos e o tech lead precisa encontrar profundidade técnica nas páginas de projeto. O deploy vai para o Azure Static Web Apps. Ambiente: Node 20.11.1, npm 10.2.4 e git 2.44 (compatíveis com Astro 5 e Tailwind v4).
 
