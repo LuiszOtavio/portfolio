@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { languages, type Lang } from '../i18n/utils';
 
@@ -38,8 +39,11 @@ const { title, description, lang, alternates } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     />
   </head>
-  <body class="min-h-screen">
+  <body id="top" class="flex min-h-screen flex-col">
     <Header lang={lang} alternates={alternates} />
-    <slot />
+    <div class="flex-1">
+      <slot />
+    </div>
+    <Footer lang={lang} />
   </body>
 </html>

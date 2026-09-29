@@ -1,0 +1,32 @@
+---
+import { profile } from '../data/profile';
+import { useTranslations, type Lang } from '../i18n/utils';
+import Icon from './Icon.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border">
+  <div
+    class="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between sm:px-6"
+  >
+    <p>
+      © {year} {profile.name}
+      <span class="hidden sm:inline" aria-hidden="true"> · </span>
+      <span class="mt-1 block font-mono text-xs sm:mt-0 sm:inline">{t('footer.builtWith')}</span>
+    </p>
+    <a
+      href="#top"
+      class="inline-flex items-center gap-1.5 transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+    >
+      <Icon name="arrowUp" class="size-4" />
+      {t('footer.backToTop')}
+    </a>
+  </div>
+</footer>

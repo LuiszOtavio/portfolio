@@ -31,6 +31,13 @@ export const pt = {
   'education.certifications': 'Certificações',
   'education.languages': 'Idiomas',
 
+  'contact.intro':
+    'Estou aberto a oportunidades em DevOps, Cloud e automação. O jeito mais rápido de falar comigo é por e-mail ou pelo LinkedIn.',
+  'contact.cv': 'Currículo',
+
+  'footer.builtWith': 'Feito com Astro + Tailwind',
+  'footer.backToTop': 'Voltar ao topo',
+
   'status.studying': 'em estudo',
   'status.inPreparation': 'em preparação',
 
