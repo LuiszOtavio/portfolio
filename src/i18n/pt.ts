@@ -1,13 +1,13 @@
 export const pt = {
   'meta.title': 'Portifolio - Luis Otávio Batista',
   'meta.description':
-    'Suporte & Automação em Cloud · Python · UiPath · Azure — em transição para DevOps',
+    'Suporte & Automação em Cloud · Python · Azure — em transição para DevOps',
 
   'hero.role': 'Analista de Suporte',
-  'hero.headline': 'Suporte & Automação em Cloud · Python · UiPath · Azure —',
+  'hero.headline': 'Suporte & Automação em Cloud · Python · Azure —',
   'hero.headlineHighlight': 'em transição para DevOps',
   'hero.valueProp':
-    'Mantenho automações RPA em Python rodando em produção para clientes corporativos, com troubleshooting de infraestrutura e conectividade VPN para garantir a continuidade operacional de automações críticas nos setores agroindustrial, financeiro e de infraestrutura.',
+    'Dou suporte e manutenção a automações RPA em Python rodando em produção para clientes corporativos dos setores agroindustrial, financeiro e de infraestrutura — da triagem do chamado à resolução, garantindo a continuidade operacional de automações críticas.',
   'hero.contact': 'Contato',
   'hero.github': 'GitHub',
   'hero.newTab': '(abre em nova aba)',

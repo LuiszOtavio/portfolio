@@ -3,13 +3,13 @@ import type { TranslationKey } from './pt';
 export const en: Record<TranslationKey, string> = {
   'meta.title': 'Portfolio - Luis Otávio Batista',
   'meta.description':
-    'Automation & Cloud Support · Python · UiPath · Azure — transitioning into DevOps',
+    'Automation & Cloud Support · Python · Azure — transitioning into DevOps',
 
   'hero.role': 'Support Analyst',
-  'hero.headline': 'Automation & Cloud Support · Python · UiPath · Azure —',
+  'hero.headline': 'Automation & Cloud Support · Python · Azure —',
   'hero.headlineHighlight': 'transitioning into DevOps',
   'hero.valueProp':
-    'I keep Python RPA automations running in production for corporate clients, troubleshooting infrastructure and VPN connectivity to ensure the operational continuity of business-critical automations for agribusiness, financial and infrastructure companies.',
+    'I support and maintain Python RPA automations running in production for corporate clients in the agribusiness, financial and infrastructure sectors — from ticket triage to resolution, ensuring the operational continuity of business-critical automations.',
   'hero.contact': 'Contact',
   'hero.github': 'GitHub',
   'hero.newTab': '(opens in a new tab)',
