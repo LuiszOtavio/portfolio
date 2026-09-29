@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import photo from '../img/foto-perfil.jpg';
 import { useTranslations, type Lang } from '../i18n/utils';
 import Section from './Section.astro';
 
@@ -11,5 +13,21 @@ const t = useTranslations(lang);
 ---
 
 <Section id="about" title={t('nav.about')}>
-  <p class="max-w-3xl text-lg leading-relaxed text-muted">{t('about.body')}</p>
+  <div class="flex flex-col gap-10 sm:flex-row sm:items-center sm:gap-12">
+    <div class="relative w-40 shrink-0 sm:w-48 md:w-56">
+      <!-- Offset gradient frame behind the photo. -->
+      <div
+        class="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-linear-to-br from-primary to-accent opacity-70"
+        aria-hidden="true"
+      ></div>
+      <Image
+        src={photo}
+        alt={t('about.photoAlt')}
+        widths={[160, 224, 320, 448]}
+        sizes="(min-width: 768px) 224px, (min-width: 640px) 192px, 160px"
+        class="relative aspect-[5/6] w-full rounded-2xl border border-border object-cover"
+      />
+    </div>
+    <p class="max-w-2xl text-lg leading-relaxed text-muted">{t('about.body')}</p>
+  </div>
 </Section>

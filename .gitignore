@@ -23,5 +23,8 @@ Thumbs.db
 # internal working docs (briefing, plan, pending items) — kept local only
 docs/
 
+# original uncropped photo — the site uses src/img/foto-perfil.jpg
+src/img/*.jfif
+
 # local AI tooling settings
 .claude/

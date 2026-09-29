@@ -12,6 +12,7 @@ export const pt = {
   'hero.github': 'GitHub',
   'hero.newTab': '(abre em nova aba)',
 
+  'about.photoAlt': 'Foto de Luis Otávio Batista',
   'about.body':
     'Desempenho papel de liderança técnica no time quando necessário, contribuindo para o alinhamento e a tomada de decisões, e uso ferramentas de Inteligência Artificial no dia a dia para otimizar fluxos internos e desenvolver soluções. Formado em Análise e Desenvolvimento de Sistemas pela Fatec Americana, estou em transição para DevOps/Cloud, com desenvolvimento contínuo em Linux, Git, redes TCP/IP e Azure.',
 
@@ -19,7 +20,7 @@ export const pt = {
   'project.back': 'Voltar para projetos',
   'project.stack': 'Stack',
   'project.repo': 'Repositório',
-  'project.demo': 'Ver demo',
+  'project.visit': 'Acessar',
 
   'education.title': 'Formação, certificações & idiomas',
   'education.degrees': 'Formação',

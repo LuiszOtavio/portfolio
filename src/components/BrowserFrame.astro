@@ -1,0 +1,52 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+  /** Text shown in the fake address bar. */
+  label: string;
+  /** When set, the whole frame links to it. */
+  href?: string;
+  external?: boolean;
+  /** Screen-reader text for the link, e.g. "Access site: Personal portfolio". */
+  linkLabel?: string;
+  sizes: string;
+  loading?: 'eager' | 'lazy';
+}
+
+const { image, alt, label, href, external = false, linkLabel, sizes, loading = 'lazy' } = Astro.props;
+const Tag = href ? 'a' : 'div';
+const linkAttrs = href
+  ? {
+      href,
+      'aria-label': linkLabel,
+      ...(external && { target: '_blank', rel: 'noopener noreferrer' }),
+    }
+  : {};
+---
+
+<Tag
+  {...linkAttrs}
+  class="group block overflow-hidden rounded-xl border border-border bg-surface shadow-[0_20px_60px_-30px_var(--primary)] transition-colors hover:border-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+>
+  <div class="flex items-center gap-3 border-b border-border px-4 py-2.5" aria-hidden="true">
+    <div class="flex gap-1.5">
+      <span class="size-2.5 rounded-full bg-border"></span>
+      <span class="size-2.5 rounded-full bg-border"></span>
+      <span class="size-2.5 rounded-full bg-accent/70"></span>
+    </div>
+    <div class="flex-1 truncate rounded-md bg-bg px-3 py-1 text-center font-mono text-xs text-muted">
+      {label}
+    </div>
+  </div>
+  <Image
+    src={image}
+    alt={alt}
+    widths={[480, 768, 1024, 1280]}
+    sizes={sizes}
+    loading={loading}
+    class="block w-full transition-transform duration-500 group-hover:scale-[1.015]"
+  />
+</Tag>

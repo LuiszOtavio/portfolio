@@ -56,6 +56,13 @@
   }
 }
 
+/* Dot grid that fades out towards the edges (decorative backgrounds). */
+@utility bg-dots {
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 30%, transparent 75%);
+}
+
 /* Markdown body of project pages (no typography plugin: styles kept minimal and on-brand). */
 @layer components {
   .project-body {

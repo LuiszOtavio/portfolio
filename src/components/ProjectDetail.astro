@@ -4,6 +4,7 @@ import { profile } from '../data/profile';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { languages, useTranslations, type Lang } from '../i18n/utils';
 import type { Project } from '../lib/projects';
+import BrowserFrame from './BrowserFrame.astro';
 import ButtonLink from './ButtonLink.astro';
 import Icon from './Icon.astro';
 
@@ -15,12 +16,16 @@ interface Props {
 
 const { lang, project, alternates } = Astro.props;
 const t = useTranslations(lang);
-const { title, summary, stack, repo, demo } = project.data;
+const { title, summary, stack, repo, demo, image, imageAlt } = project.data;
 const { Content } = await render(project);
+
+const demoIsExternal = demo?.startsWith('http') ?? false;
+// Address-bar text: the real URL when external, otherwise the project title.
+const frameLabel = demo && demoIsExternal ? demo.replace(/^https?:\/\//, '') : title;
 ---
 
 <BaseLayout lang={lang} title={`${title} · ${profile.name}`} description={summary} alternates={alternates}>
-  <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+  <main class="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
     <a
       href={`${languages[lang].home}#projects`}
       class="font-mono text-sm text-muted transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
@@ -28,9 +33,9 @@ const { Content } = await render(project);
       ← {t('project.back')}
     </a>
 
-    <header class="mt-8 border-b border-border pb-10">
+    <header class="mt-8">
       <h1 class="text-3xl font-bold tracking-tight text-balance sm:text-5xl">{title}</h1>
-      <p class="mt-4 text-lg leading-relaxed text-muted">{summary}</p>
+      <p class="mt-4 max-w-3xl text-lg leading-relaxed text-muted">{summary}</p>
 
       <h2 class="sr-only">{t('project.stack')}</h2>
       <ul class="mt-6 flex flex-wrap gap-2">
@@ -38,18 +43,19 @@ const { Content } = await render(project);
       </ul>
 
       {
-        (repo || demo) && (
+        (demo || repo) && (
           <div class="mt-8 flex flex-wrap gap-3">
-            {repo && (
-              <ButtonLink href={repo} variant="secondary" size="sm" external>
-                <Icon name="github" />
-                {t('project.repo')}
-                <span class="sr-only">{t('hero.newTab')}</span>
+            {demo && (
+              <ButtonLink href={demo} external={demoIsExternal}>
+                {t('project.visit')}
+                <Icon name="external" />
+                {demoIsExternal && <span class="sr-only">{t('hero.newTab')}</span>}
               </ButtonLink>
             )}
-            {demo && (
-              <ButtonLink href={demo} size="sm" external>
-                {t('project.demo')}
+            {repo && (
+              <ButtonLink href={repo} variant="secondary" external>
+                <Icon name="github" />
+                {t('project.repo')}
                 <span class="sr-only">{t('hero.newTab')}</span>
               </ButtonLink>
             )}
@@ -58,7 +64,24 @@ const { Content } = await render(project);
       }
     </header>
 
-    <article class="project-body mt-10">
+    {
+      image && imageAlt && (
+        <div class="mt-12">
+          <BrowserFrame
+            image={image}
+            alt={imageAlt}
+            label={frameLabel}
+            href={demo}
+            external={demoIsExternal}
+            linkLabel={demo ? `${t('project.visit')}: ${title}` : undefined}
+            sizes="(min-width: 896px) 832px, calc(100vw - 2rem)"
+            loading="eager"
+          />
+        </div>
+      )
+    }
+
+    <article class="project-body mt-14 max-w-3xl border-t border-border pt-12">
       <Content />
     </article>
   </main>

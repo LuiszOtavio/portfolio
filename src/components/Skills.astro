@@ -12,7 +12,7 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<Section id="skills" title={t('nav.skills')}>
+<Section id="skills" title={t('nav.skills')} band>
   <div class="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
     {
       skills[lang].map((group) => (
@@ -25,8 +25,10 @@ const t = useTranslations(lang);
             {group.items.map((item) => (
               <li
                 class:list={[
-                  'rounded-md border px-3 py-1.5 text-sm',
-                  group.studying ? 'border-dashed border-border text-muted' : 'border-border bg-surface',
+                  'rounded-md border px-3 py-1.5 text-sm transition-colors',
+                  group.studying
+                    ? 'border-dashed border-accent/40 text-muted hover:text-accent'
+                    : 'border-border bg-bg hover:border-primary hover:text-primary',
                 ]}
               >
                 {item}

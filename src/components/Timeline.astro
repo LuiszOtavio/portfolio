@@ -11,13 +11,13 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<Section id="experience" title={t('nav.experience')}>
-  <ol class="relative border-l border-border">
+<Section id="experience" title={t('nav.experience')} band>
+  <ol class="relative border-l border-primary/40">
     {
       experience[lang].map((job) => (
         <li class="relative pb-10 pl-6 last:pb-0 sm:pl-8">
           <span
-            class="absolute top-1.5 -left-[5.5px] size-2.5 rounded-full bg-primary ring-4 ring-bg"
+            class="absolute top-1.5 -left-[5.5px] size-2.5 rounded-full bg-primary shadow-[0_0_0_4px_var(--surface),0_0_14px_2px_var(--primary)]"
             aria-hidden="true"
           />
           <p class="font-mono text-sm text-muted">

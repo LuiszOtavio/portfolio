@@ -14,6 +14,7 @@ export const en: Record<TranslationKey, string> = {
   'hero.github': 'GitHub',
   'hero.newTab': '(opens in a new tab)',
 
+  'about.photoAlt': 'Photo of Luis Otávio Batista',
   'about.body':
     'I take on the technical leadership of the team when needed, supporting alignment and decision-making, and I use Artificial Intelligence tools daily to streamline internal workflows and build solutions. With a degree in Systems Analysis and Development from Fatec Americana, I am transitioning into DevOps/Cloud, continuously developing my skills in Linux, Git, TCP/IP networking and Azure.',
 
@@ -21,7 +22,7 @@ export const en: Record<TranslationKey, string> = {
   'project.back': 'Back to projects',
   'project.stack': 'Stack',
   'project.repo': 'Repository',
-  'project.demo': 'View demo',
+  'project.visit': 'Visit site',
 
   'education.title': 'Education, certifications & languages',
   'education.degrees': 'Education',
