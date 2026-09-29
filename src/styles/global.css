@@ -55,3 +55,54 @@
     @apply bg-bg text-text font-sans antialiased;
   }
 }
+
+/* Markdown body of project pages (no typography plugin: styles kept minimal and on-brand). */
+@layer components {
+  .project-body {
+    @apply leading-relaxed text-muted;
+  }
+  .project-body > * + * {
+    @apply mt-5;
+  }
+  .project-body h2 {
+    @apply mt-12 flex items-center gap-3 text-2xl font-bold tracking-tight text-text;
+  }
+  .project-body h2::before {
+    content: '#';
+    @apply font-mono text-base font-medium text-primary;
+  }
+  .project-body > h2:first-child {
+    @apply mt-0;
+  }
+  .project-body h3 {
+    @apply mt-8 text-lg font-semibold text-text;
+  }
+  .project-body strong {
+    @apply font-semibold text-text;
+  }
+  .project-body a {
+    @apply text-primary underline underline-offset-4 hover:no-underline;
+  }
+  .project-body ul,
+  .project-body ol {
+    @apply space-y-3 pl-5;
+  }
+  .project-body ul {
+    @apply list-disc marker:text-accent;
+  }
+  .project-body ol {
+    @apply list-decimal marker:text-accent;
+  }
+  .project-body code {
+    @apply rounded bg-surface px-1.5 py-0.5 font-mono text-[0.875em] text-text;
+  }
+  .project-body pre {
+    @apply overflow-x-auto rounded-lg border border-border bg-surface p-4 text-sm;
+  }
+  .project-body pre code {
+    @apply bg-transparent p-0;
+  }
+  .project-body img {
+    @apply rounded-lg border border-border;
+  }
+}

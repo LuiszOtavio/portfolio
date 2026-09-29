@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import type { Lang } from '../i18n/utils';
+import { languages, type Lang } from '../i18n/utils';
 
 export type Project = CollectionEntry<'projetos'>;
 
@@ -15,4 +15,23 @@ export async function getProjects(lang: Lang): Promise<Project[]> {
 
 export function projectPath(lang: Lang, slug: string): string {
   return lang === 'pt' ? `/projetos/${slug}/` : `/en/projects/${slug}/`;
+}
+
+/**
+ * getStaticPaths for a language's detail pages. Each page also gets the URL of
+ * the same project in every language, falling back to that language's home.
+ */
+export async function getProjectStaticPaths(lang: Lang) {
+  const all = await getCollection('projetos');
+  const ids = new Set(all.map((p) => p.id));
+  const langs = Object.keys(languages) as Lang[];
+
+  return (await getProjects(lang)).map((project) => {
+    const slug = projectSlug(project);
+    const alternates = Object.fromEntries(
+      langs.map((l) => [l, ids.has(`${l}/${slug}`) ? projectPath(l, slug) : languages[l].home]),
+    ) as Record<Lang, string>;
+
+    return { params: { slug }, props: { project, alternates } };
+  });
 }

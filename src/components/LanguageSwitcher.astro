@@ -3,9 +3,11 @@ import { getLangFromUrl, getLocalizedPath, languages, type Lang } from '../i18n/
 
 interface Props {
   label: string;
+  /** Explicit equivalent URL per language, for pages whose path differs between languages. */
+  alternates?: Partial<Record<Lang, string>>;
 }
 
-const { label } = Astro.props;
+const { label, alternates } = Astro.props;
 const current = getLangFromUrl(Astro.url);
 const langs = Object.keys(languages) as Lang[];
 ---
@@ -21,7 +23,7 @@ const langs = Object.keys(languages) as Lang[];
           </span>
         ) : (
           <a
-            href={getLocalizedPath(Astro.url, lang)}
+            href={alternates?.[lang] ?? getLocalizedPath(Astro.url, lang)}
             hreflang={languages[lang].htmlLang}
             lang={languages[lang].htmlLang}
             class="rounded px-1.5 py-1 text-muted transition-colors hover:text-text focus-visible:outline-2 focus-visible:outline-primary"

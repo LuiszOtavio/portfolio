@@ -1,0 +1,10 @@
+---
+import ProjectDetail from '../../../components/ProjectDetail.astro';
+import { getProjectStaticPaths } from '../../../lib/projects';
+
+export const getStaticPaths = () => getProjectStaticPaths('en');
+
+const { project, alternates } = Astro.props;
+---
+
+<ProjectDetail lang="en" project={project} alternates={alternates} />

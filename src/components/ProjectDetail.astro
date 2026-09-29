@@ -1,0 +1,65 @@
+---
+import { render } from 'astro:content';
+import { profile } from '../data/profile';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { languages, useTranslations, type Lang } from '../i18n/utils';
+import type { Project } from '../lib/projects';
+import ButtonLink from './ButtonLink.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  lang: Lang;
+  project: Project;
+  alternates: Record<Lang, string>;
+}
+
+const { lang, project, alternates } = Astro.props;
+const t = useTranslations(lang);
+const { title, summary, stack, repo, demo } = project.data;
+const { Content } = await render(project);
+---
+
+<BaseLayout lang={lang} title={`${title} · ${profile.name}`} description={summary} alternates={alternates}>
+  <main class="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
+    <a
+      href={`${languages[lang].home}#projects`}
+      class="font-mono text-sm text-muted transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+    >
+      ← {t('project.back')}
+    </a>
+
+    <header class="mt-8 border-b border-border pb-10">
+      <h1 class="text-3xl font-bold tracking-tight text-balance sm:text-5xl">{title}</h1>
+      <p class="mt-4 text-lg leading-relaxed text-muted">{summary}</p>
+
+      <h2 class="sr-only">{t('project.stack')}</h2>
+      <ul class="mt-6 flex flex-wrap gap-2">
+        {stack.map((tech) => <li class="rounded bg-surface px-2 py-1 font-mono text-xs text-muted">{tech}</li>)}
+      </ul>
+
+      {
+        (repo || demo) && (
+          <div class="mt-8 flex flex-wrap gap-3">
+            {repo && (
+              <ButtonLink href={repo} variant="secondary" size="sm" external>
+                <Icon name="github" />
+                {t('project.repo')}
+                <span class="sr-only">{t('hero.newTab')}</span>
+              </ButtonLink>
+            )}
+            {demo && (
+              <ButtonLink href={demo} size="sm" external>
+                {t('project.demo')}
+                <span class="sr-only">{t('hero.newTab')}</span>
+              </ButtonLink>
+            )}
+          </div>
+        )
+      }
+    </header>
+
+    <article class="project-body mt-10">
+      <Content />
+    </article>
+  </main>
+</BaseLayout>

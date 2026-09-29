@@ -8,9 +8,10 @@ import ThemeToggle from './ThemeToggle.astro';
 
 interface Props {
   lang: Lang;
+  alternates?: Partial<Record<Lang, string>>;
 }
 
-const { lang } = Astro.props;
+const { lang, alternates } = Astro.props;
 const t = useTranslations(lang);
 const home = languages[lang].home;
 
@@ -53,7 +54,7 @@ const sections = [
     </nav>
 
     <div class="flex items-center gap-1 sm:gap-2">
-      <LanguageSwitcher label={t('lang.label')} />
+      <LanguageSwitcher label={t('lang.label')} alternates={alternates} />
       <ThemeToggle label={t('theme.toggle')} />
       <ButtonLink href={profile.cv} download={profile.cvDownloadName} size="sm" class="ml-1">
         <Icon name="download" class="hidden size-4 sm:block" />
