@@ -1,0 +1,42 @@
+---
+import { useTranslations, type Lang } from '../i18n/utils';
+import { getProjects, projectPath, projectSlug } from '../lib/projects';
+import ProjectCard from './ProjectCard.astro';
+import Section from './Section.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const projects = await getProjects(lang);
+
+// Keep 1–2 projects from looking lost in a 3-column grid.
+const gridClass =
+  projects.length === 1
+    ? 'max-w-xl'
+    : projects.length === 2
+      ? 'sm:grid-cols-2'
+      : 'sm:grid-cols-2 lg:grid-cols-3';
+---
+
+{
+  projects.length > 0 && (
+    <Section id="projects" title={t('nav.projects')}>
+      <ul class:list={['grid gap-6', gridClass]}>
+        {projects.map((project) => (
+          <li>
+            <ProjectCard
+              title={project.data.title}
+              summary={project.data.summary}
+              stack={project.data.stack}
+              href={projectPath(lang, projectSlug(project))}
+              cta={t('projects.details')}
+            />
+          </li>
+        ))}
+      </ul>
+    </Section>
+  )
+}

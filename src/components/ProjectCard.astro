@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  summary: string;
+  stack: string[];
+  href: string;
+  cta: string;
+}
+
+const { title, summary, stack, href, cta } = Astro.props;
+---
+
+<article
+  class="group relative flex h-full flex-col rounded-lg border border-border bg-surface p-6 transition-colors focus-within:ring-2 focus-within:ring-primary hover:border-primary"
+>
+  <h3 class="text-lg font-semibold">
+    <!-- Stretched link: the whole card is clickable, but only the title is announced. -->
+    <a href={href} class="after:absolute after:inset-0 after:rounded-lg focus-visible:outline-none">
+      {title}
+    </a>
+  </h3>
+  <p class="mt-2 leading-relaxed text-muted">{summary}</p>
+
+  <ul class="mt-5 flex flex-wrap gap-2">
+    {stack.map((tech) => <li class="rounded bg-bg px-2 py-1 font-mono text-xs text-muted">{tech}</li>)}
+  </ul>
+
+  <p class="mt-auto pt-6 text-sm font-medium text-primary" aria-hidden="true">
+    {cta}
+    <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
+  </p>
+</article>

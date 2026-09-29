@@ -17,6 +17,8 @@ export const en: Record<TranslationKey, string> = {
   'about.body':
     'I take on the technical leadership of the team when needed, supporting alignment and decision-making, and I use Artificial Intelligence tools daily to streamline internal workflows and build solutions. With a degree in Systems Analysis and Development from Fatec Americana, I am transitioning into DevOps/Cloud, continuously developing my skills in Linux, Git, TCP/IP networking and Azure.',
 
+  'projects.details': 'View details',
+
   'education.title': 'Education, certifications & languages',
   'education.degrees': 'Education',
   'education.certifications': 'Certifications',

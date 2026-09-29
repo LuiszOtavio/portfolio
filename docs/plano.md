@@ -32,7 +32,7 @@ Cada etapa termina com `npm run build` passando, uma verificação no navegador 
    → *No navegador:* as seções renderizadas e a timeline legível no mobile.
 5. ✅ **[CONCLUÍDA em 2026-09-29]** *(implementado como `Skills.astro` + `Badge.astro`; UiPath mantido só nas skills, fora da headline)* **Skills + Formação/Certificações/Idiomas:** `SkillGroup.astro`, com os grupos por categoria e um selo visual "em estudo" para Terraform, CI/CD e Kubernetes. `Education.astro` traz a Fatec, a ETEC, o TOEIC 820, o inglês avançado e AZ-900/AZ-104 "em preparação".
    → *No navegador:* as duas seções completas, sem barras de porcentagem.
-6. **Projetos (coleção + cards):** a content collection `projetos` com schema Zod (title, summary, problem, stack, links, lang, order), o `ProjectCard.astro` e um grid que funciona bem com 1 a 10 itens. Adiciono o projeto nº 1 (o portfólio) em PT e EN.
+6. ✅ **[CONCLUÍDA em 2026-09-29]** *(o texto técnico do projeto fica no corpo do Markdown; "Resultados" e "Aprendizados" ficam para você preencher)* **Projetos (coleção + cards):** a content collection `projetos` com schema Zod (title, summary, problem, stack, links, lang, order), o `ProjectCard.astro` e um grid que funciona bem com 1 a 10 itens. Adiciono o projeto nº 1 (o portfólio) em PT e EN.
    → *No navegador:* o card na home.
 7. **Página de detalhe do projeto:** `src/pages/projetos/[slug].astro` e `src/pages/en/projects/[slug].astro`, com as seções problema, stack, arquitetura, decisões, o que deu errado, aprendizados, repositório e demo. As seções vazias ficam ocultas.
    → *No navegador:* clicar no card e ler a página técnica.
