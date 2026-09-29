@@ -1,8 +1,10 @@
 ---
+import { Font } from 'astro:assets';
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { languages, type Lang } from '../i18n/utils';
+import { profile } from '../data/profile';
+import { defaultLang, getLocalizedPath, languages, type Lang } from '../i18n/utils';
 
 interface Props {
   title: string;
@@ -10,9 +12,23 @@ interface Props {
   lang: Lang;
   /** Equivalent page in each language, when its path is not just the /en prefix. */
   alternates?: Partial<Record<Lang, string>>;
+  ogType?: 'website' | 'article';
 }
 
-const { title, description, lang, alternates } = Astro.props;
+const { title, description, lang, alternates: explicit, ogType = 'website' } = Astro.props;
+const langs = Object.keys(languages) as Lang[];
+
+// Same page in every language (used by the switcher and by hreflang).
+const alternates = Object.fromEntries(
+  langs.map((l) => [l, explicit?.[l] ?? getLocalizedPath(Astro.url, l)]),
+) as Record<Lang, string>;
+
+// Absolute URLs need `site` (SITE_URL, set at deploy). Without it, those tags are skipped.
+const site = Astro.site;
+const abs = (path: string) => (site ? new URL(path, site).href : undefined);
+const canonical = abs(Astro.url.pathname);
+const ogImage = abs(`/og-${lang}.png`);
+const ogLocale = { pt: 'pt_BR', en: 'en_US' } as const;
 ---
 
 <!doctype html>
@@ -22,6 +38,8 @@ const { title, description, lang, alternates } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={profile.name} />
+    <meta name="theme-color" content="#0b0d12" />
 
     <!-- Apply the saved theme before first paint to avoid a flash of the wrong theme. -->
     <script is:inline>
@@ -32,12 +50,50 @@ const { title, description, lang, alternates } = Astro.props;
       } catch {}
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <Font cssVariable="--font-inter" preload />
+    <Font cssVariable="--font-jetbrains-mono" />
+
+    {canonical && <link rel="canonical" href={canonical} />}
+    {
+      site && (
+        <>
+          {langs.map((l) => (
+            <link rel="alternate" hreflang={languages[l].htmlLang} href={abs(alternates[l])} />
+          ))}
+          <link rel="alternate" hreflang="x-default" href={abs(alternates[defaultLang])} />
+        </>
+      )
+    }
+
+    <!-- Open Graph / link previews (LinkedIn, e-mail, WhatsApp...) -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={profile.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:locale" content={ogLocale[lang]} />
+    {
+      langs
+        .filter((l) => l !== lang)
+        .map((l) => <meta property="og:locale:alternate" content={ogLocale[l]} />)
+    }
+    {canonical && <meta property="og:url" content={canonical} />}
+    {
+      ogImage && (
+        <>
+          <meta property="og:image" content={ogImage} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content={title} />
+        </>
+      )
+    }
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
   </head>
   <body id="top" class="flex min-h-screen flex-col">
     <Header lang={lang} alternates={alternates} />

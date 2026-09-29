@@ -24,7 +24,7 @@ const demoIsExternal = demo?.startsWith('http') ?? false;
 const frameLabel = demo && demoIsExternal ? demo.replace(/^https?:\/\//, '') : title;
 ---
 
-<BaseLayout lang={lang} title={`${title} · ${profile.name}`} description={summary} alternates={alternates}>
+<BaseLayout lang={lang} title={`${title} · ${profile.name}`} description={summary} alternates={alternates} ogType="article">
   <main class="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
     <a
       href={`${languages[lang].home}#projects`}

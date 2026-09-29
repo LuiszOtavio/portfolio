@@ -1,7 +1,7 @@
 export const pt = {
   'meta.title': 'Portifolio - Luis Otávio Batista',
   'meta.description':
-    'Suporte & Automação em Cloud · Python · Azure — em transição para DevOps',
+    'Analista de Suporte focado em automações RPA com Python e ambientes Azure, em transição para DevOps. Experiência, projetos e contato.',
 
   'hero.role': 'Analista de Suporte',
   'hero.photoAlt': 'Foto de Luis Otávio Batista',
@@ -36,6 +36,10 @@ export const pt = {
   'contact.cv': 'Currículo',
 
   'footer.backToTop': 'Voltar ao topo',
+
+  'notFound.title': 'Página não encontrada',
+  'notFound.body': 'O endereço que você abriu não existe ou mudou de lugar.',
+  'notFound.home': 'Ir para o início',
 
   'status.studying': 'em estudo',
   'status.inPreparation': 'em preparação',

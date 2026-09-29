@@ -3,7 +3,7 @@ import type { TranslationKey } from './pt';
 export const en: Record<TranslationKey, string> = {
   'meta.title': 'Portfolio - Luis Otávio Batista',
   'meta.description':
-    'Automation & Cloud Support · Python · Azure — transitioning into DevOps',
+    'Support Analyst focused on Python RPA automations and Azure environments, transitioning into DevOps. Experience, projects and contact.',
 
   'hero.role': 'Support Analyst',
   'hero.photoAlt': 'Photo of Luis Otávio Batista',
@@ -38,6 +38,10 @@ export const en: Record<TranslationKey, string> = {
   'contact.cv': 'Résumé',
 
   'footer.backToTop': 'Back to top',
+
+  'notFound.title': 'Page not found',
+  'notFound.body': 'The address you opened does not exist or has moved.',
+  'notFound.home': 'Go to the English home page',
 
   'status.studying': 'studying',
   'status.inPreparation': 'in preparation',

@@ -31,22 +31,29 @@ const t = useTranslations(lang);
     class="mx-auto grid min-h-[calc(76svh-4rem)] max-w-5xl items-center gap-12 px-4 py-10 sm:px-6 sm:py-16 md:grid-cols-[1fr_auto] lg:gap-16"
   >
     <div>
-      <p class="font-mono text-sm text-primary">{t('hero.role')}</p>
+      <p class="fade-up font-mono text-sm text-primary">{t('hero.role')}</p>
 
-      <h1 id="hero-title" class="mt-3 text-4xl font-bold tracking-tight text-balance sm:text-6xl">
+      <h1
+        id="hero-title"
+        class="fade-up mt-3 text-4xl font-bold tracking-tight text-balance sm:text-6xl"
+        style="--delay: 60ms"
+      >
         {profile.name}
       </h1>
 
-      <p class="mt-4 max-w-3xl text-lg font-medium text-pretty sm:text-xl">
+      <p class="fade-up mt-4 max-w-3xl text-lg font-medium text-pretty sm:text-xl" style="--delay: 120ms">
         {t('hero.headline')}{' '}
         <span class="whitespace-nowrap text-accent">{t('hero.headlineHighlight')}</span>
       </p>
 
-      <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:mt-6 sm:text-lg">
+      <p
+        class="fade-up mt-4 max-w-2xl text-base leading-relaxed text-muted sm:mt-6 sm:text-lg"
+        style="--delay: 180ms"
+      >
         {t('hero.valueProp')}
       </p>
 
-      <div class="mt-8 flex flex-wrap gap-3 sm:mt-10">
+      <div class="fade-up mt-8 flex flex-wrap gap-3 sm:mt-10" style="--delay: 240ms">
         <ButtonLink href={profile.cv} download={profile.cvDownloadName}>
           <Icon name="download" />
           {t('cv.label')}
@@ -64,7 +71,7 @@ const t = useTranslations(lang);
     </div>
 
     <!-- Photo: below the buttons on mobile (keeps CTAs in the first fold), right column from md. -->
-    <div class="relative w-60 justify-self-center sm:w-72 md:w-64 lg:w-80">
+    <div class="fade-up relative w-60 justify-self-center sm:w-72 md:w-64 lg:w-80" style="--delay: 150ms">
       <div
         class="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-linear-to-br from-primary to-accent opacity-70 sm:translate-x-4 sm:translate-y-4"
         aria-hidden="true"
@@ -74,7 +81,7 @@ const t = useTranslations(lang);
         alt={t('hero.photoAlt')}
         widths={[240, 320, 480, 640]}
         sizes="(min-width: 1024px) 320px, (min-width: 768px) 256px, (min-width: 640px) 288px, 240px"
-        loading="eager"
+        priority
         class="relative aspect-[25/32] w-full rounded-2xl border border-border object-cover"
       />
     </div>
