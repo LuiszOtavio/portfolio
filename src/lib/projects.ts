@@ -13,6 +13,13 @@ export async function getProjects(lang: Lang): Promise<Project[]> {
   return projects.sort((a, b) => a.data.order - b.data.order);
 }
 
+export type Tool = CollectionEntry<'ferramentas'>;
+
+export async function getTools(lang: Lang): Promise<Tool[]> {
+  const tools = await getCollection('ferramentas', ({ id }) => id.startsWith(`${lang}/`));
+  return tools.sort((a, b) => a.data.order - b.data.order);
+}
+
 export function projectPath(lang: Lang, slug: string): string {
   return lang === 'pt' ? `/projetos/${slug}/` : `/en/projects/${slug}/`;
 }

@@ -6,6 +6,7 @@ export const en: Record<TranslationKey, string> = {
     'Automation & Cloud Support · Python · Azure — transitioning into DevOps',
 
   'hero.role': 'Support Analyst',
+  'hero.photoAlt': 'Photo of Luis Otávio Batista',
   'hero.headline': 'Automation & Cloud Support · Python · Azure —',
   'hero.headlineHighlight': 'transitioning into DevOps',
   'hero.valueProp':
@@ -14,11 +15,14 @@ export const en: Record<TranslationKey, string> = {
   'hero.github': 'GitHub',
   'hero.newTab': '(opens in a new tab)',
 
-  'about.photoAlt': 'Photo of Luis Otávio Batista',
   'about.body':
     'I take on the technical leadership of the team when needed, supporting alignment and decision-making, and I use Artificial Intelligence tools daily to streamline internal workflows and build solutions. With a degree in Systems Analysis and Development from Fatec Americana, I am transitioning into DevOps/Cloud, continuously developing my skills in Linux, Git, TCP/IP networking and Azure.',
 
   'projects.details': 'View details',
+  'tools.title': 'Infrastructure scripts & automation',
+  'tools.description':
+    'Smaller DevOps tools without a UI: monitoring, maintenance routines and server automation.',
+  'tools.cta': 'View code',
   'project.back': 'Back to projects',
   'project.stack': 'Stack',
   'project.repo': 'Repository',

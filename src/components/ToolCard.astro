@@ -1,0 +1,58 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  name: string;
+  summary: string;
+  highlights: string[];
+  stack: string[];
+  repo: string;
+  cta: string;
+  newTab: string;
+}
+
+const { name, summary, highlights, stack, repo, cta, newTab } = Astro.props;
+---
+
+<!-- Terminal-style card for CLI/infra tools: no screenshot, the code is the product. -->
+<article
+  class="group relative flex h-full flex-col overflow-hidden rounded-lg border border-border bg-bg font-mono transition-colors focus-within:ring-2 focus-within:ring-primary hover:border-primary"
+>
+  <div class="flex items-center gap-2 border-b border-border bg-surface px-4 py-2 text-xs text-muted">
+    <span class="size-2 rounded-full bg-accent/70" aria-hidden="true"></span>
+    <h4 class="truncate">
+      <span class="text-primary" aria-hidden="true">~/</span>{name}
+    </h4>
+  </div>
+
+  <div class="flex flex-1 flex-col p-5 text-sm">
+    <p class="font-sans text-base leading-relaxed text-text">{summary}</p>
+
+    <ul class="mt-4 space-y-1.5 text-muted">
+      {
+        highlights.map((item) => (
+          <li class="flex gap-2">
+            <span class="text-accent" aria-hidden="true">›</span>
+            <span>{item}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="mt-auto flex flex-wrap items-center justify-between gap-3 pt-5">
+      <ul class="flex flex-wrap gap-1.5 text-xs text-muted">
+        {stack.map((tech) => <li class="rounded bg-surface px-2 py-0.5">{tech}</li>)}
+      </ul>
+      <a
+        href={repo}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-xs font-medium text-primary after:absolute after:inset-0 focus-visible:outline-none"
+      >
+        <Icon name="github" class="size-3.5" />
+        {cta}
+        <span class="sr-only">— {name} {newTab}</span>
+      </a>
+    </div>
+  </div>
+</article>

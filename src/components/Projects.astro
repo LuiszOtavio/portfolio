@@ -1,8 +1,9 @@
 ---
 import { useTranslations, type Lang } from '../i18n/utils';
-import { getProjects, projectPath, projectSlug } from '../lib/projects';
+import { getProjects, getTools, projectPath, projectSlug } from '../lib/projects';
 import ProjectCard from './ProjectCard.astro';
 import Section from './Section.astro';
+import ToolCard from './ToolCard.astro';
 
 interface Props {
   lang: Lang;
@@ -11,34 +12,57 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const projects = await getProjects(lang);
+const tools = await getTools(lang);
 
-// Keep 1–2 projects from looking lost in a 3-column grid.
-const gridClass =
-  projects.length === 1
-    ? 'max-w-xl'
-    : projects.length === 2
-      ? 'sm:grid-cols-2'
-      : 'sm:grid-cols-2 lg:grid-cols-3';
+// Keep 1–2 items from looking lost in a 3-column grid.
+const gridFor = (count: number, single: string) =>
+  count === 1 ? single : count === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 lg:grid-cols-3';
 ---
 
 {
-  projects.length > 0 && (
+  (projects.length > 0 || tools.length > 0) && (
     <Section id="projects" title={t('nav.projects')}>
-      <ul class:list={['grid gap-6', gridClass]}>
-        {projects.map((project) => (
-          <li>
-            <ProjectCard
-              title={project.data.title}
-              summary={project.data.summary}
-              stack={project.data.stack}
-              href={projectPath(lang, projectSlug(project))}
-              cta={t('projects.details')}
-              image={project.data.image}
-              imageAlt={project.data.imageAlt}
-            />
-          </li>
-        ))}
-      </ul>
+      {projects.length > 0 && (
+        <ul class:list={['grid gap-6', gridFor(projects.length, 'max-w-xl')]}>
+          {projects.map((project) => (
+            <li>
+              <ProjectCard
+                title={project.data.title}
+                summary={project.data.summary}
+                stack={project.data.stack}
+                href={projectPath(lang, projectSlug(project))}
+                cta={t('projects.details')}
+                image={project.data.image}
+                imageAlt={project.data.imageAlt}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {tools.length > 0 && (
+        <div class:list={[projects.length > 0 && 'mt-16']}>
+          <h3 class="font-mono text-sm font-medium tracking-wide text-muted uppercase">
+            {t('tools.title')}
+          </h3>
+          <p class="mt-2 max-w-2xl text-muted">{t('tools.description')}</p>
+          <ul class:list={['mt-6 grid gap-5', gridFor(tools.length, 'max-w-md')]}>
+            {tools.map((tool) => (
+              <li>
+                <ToolCard
+                  name={tool.data.name}
+                  summary={tool.data.summary}
+                  highlights={tool.data.highlights}
+                  stack={tool.data.stack}
+                  repo={tool.data.repo}
+                  cta={t('tools.cta')}
+                  newTab={t('hero.newTab')}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </Section>
   )
 }

@@ -4,6 +4,7 @@ export const pt = {
     'Suporte & Automação em Cloud · Python · Azure — em transição para DevOps',
 
   'hero.role': 'Analista de Suporte',
+  'hero.photoAlt': 'Foto de Luis Otávio Batista',
   'hero.headline': 'Suporte & Automação em Cloud · Python · Azure —',
   'hero.headlineHighlight': 'em transição para DevOps',
   'hero.valueProp':
@@ -12,11 +13,14 @@ export const pt = {
   'hero.github': 'GitHub',
   'hero.newTab': '(abre em nova aba)',
 
-  'about.photoAlt': 'Foto de Luis Otávio Batista',
   'about.body':
     'Desempenho papel de liderança técnica no time quando necessário, contribuindo para o alinhamento e a tomada de decisões, e uso ferramentas de Inteligência Artificial no dia a dia para otimizar fluxos internos e desenvolver soluções. Formado em Análise e Desenvolvimento de Sistemas pela Fatec Americana, estou em transição para DevOps/Cloud, com desenvolvimento contínuo em Linux, Git, redes TCP/IP e Azure.',
 
   'projects.details': 'Ver detalhes',
+  'tools.title': 'Scripts & automações de infraestrutura',
+  'tools.description':
+    'Ferramentas menores de DevOps, sem interface gráfica: monitoramento, rotinas de manutenção e automações de servidor.',
+  'tools.cta': 'Ver código',
   'project.back': 'Voltar para projetos',
   'project.stack': 'Stack',
   'project.repo': 'Repositório',

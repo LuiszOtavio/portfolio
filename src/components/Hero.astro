@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import photo from '../img/foto-hero.jpg';
 import { profile } from '../data/profile';
 import { languages, useTranslations, type Lang } from '../i18n/utils';
 import ButtonLink from './ButtonLink.astro';
@@ -26,37 +28,55 @@ const t = useTranslations(lang);
   </div>
 
   <div
-    class="mx-auto flex min-h-[calc(76svh-4rem)] max-w-5xl flex-col justify-center px-4 py-10 sm:px-6 sm:py-16"
+    class="mx-auto grid min-h-[calc(76svh-4rem)] max-w-5xl items-center gap-12 px-4 py-10 sm:px-6 sm:py-16 md:grid-cols-[1fr_auto] lg:gap-16"
   >
-    <p class="font-mono text-sm text-primary">{t('hero.role')}</p>
+    <div>
+      <p class="font-mono text-sm text-primary">{t('hero.role')}</p>
 
-    <h1 id="hero-title" class="mt-3 text-4xl font-bold tracking-tight text-balance sm:text-6xl">
-      {profile.name}
-    </h1>
+      <h1 id="hero-title" class="mt-3 text-4xl font-bold tracking-tight text-balance sm:text-6xl">
+        {profile.name}
+      </h1>
 
-    <p class="mt-4 max-w-3xl text-lg font-medium text-balance sm:text-xl">
-      {t('hero.headline')}{' '}
-      <span class="text-accent">{t('hero.headlineHighlight')}</span>
-    </p>
+      <p class="mt-4 max-w-3xl text-lg font-medium text-pretty sm:text-xl">
+        {t('hero.headline')}{' '}
+        <span class="whitespace-nowrap text-accent">{t('hero.headlineHighlight')}</span>
+      </p>
 
-    <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:mt-6 sm:text-lg">
-      {t('hero.valueProp')}
-    </p>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-muted sm:mt-6 sm:text-lg">
+        {t('hero.valueProp')}
+      </p>
 
-    <div class="mt-8 flex flex-wrap gap-3 sm:mt-10">
-      <ButtonLink href={profile.cv} download={profile.cvDownloadName}>
-        <Icon name="download" />
-        {t('cv.label')}
-      </ButtonLink>
-      <ButtonLink href={`${languages[lang].home}#contact`} variant="secondary">
-        <Icon name="mail" />
-        {t('hero.contact')}
-      </ButtonLink>
-      <ButtonLink href={profile.github} variant="ghost" external>
-        <Icon name="github" />
-        {t('hero.github')}
-        <span class="sr-only">{t('hero.newTab')}</span>
-      </ButtonLink>
+      <div class="mt-8 flex flex-wrap gap-3 sm:mt-10">
+        <ButtonLink href={profile.cv} download={profile.cvDownloadName}>
+          <Icon name="download" />
+          {t('cv.label')}
+        </ButtonLink>
+        <ButtonLink href={`${languages[lang].home}#contact`} variant="secondary">
+          <Icon name="mail" />
+          {t('hero.contact')}
+        </ButtonLink>
+        <ButtonLink href={profile.github} variant="ghost" external>
+          <Icon name="github" />
+          {t('hero.github')}
+          <span class="sr-only">{t('hero.newTab')}</span>
+        </ButtonLink>
+      </div>
+    </div>
+
+    <!-- Photo: below the buttons on mobile (keeps CTAs in the first fold), right column from md. -->
+    <div class="relative w-60 justify-self-center sm:w-72 md:w-64 lg:w-80">
+      <div
+        class="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl bg-linear-to-br from-primary to-accent opacity-70 sm:translate-x-4 sm:translate-y-4"
+        aria-hidden="true"
+      ></div>
+      <Image
+        src={photo}
+        alt={t('hero.photoAlt')}
+        widths={[240, 320, 480, 640]}
+        sizes="(min-width: 1024px) 320px, (min-width: 768px) 256px, (min-width: 640px) 288px, 240px"
+        loading="eager"
+        class="relative aspect-[25/32] w-full rounded-2xl border border-border object-cover"
+      />
     </div>
   </div>
 </section>

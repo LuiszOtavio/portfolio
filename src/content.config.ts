@@ -32,4 +32,24 @@ const projetos = defineCollection({
       }),
 });
 
-export const collections = { projetos };
+/**
+ * Smaller DevOps/infra tools without a UI (scripts, health checks, hardening...).
+ * Frontmatter only — each card links straight to the GitHub repository:
+ *   src/content/ferramentas/pt/<slug>.md
+ *   src/content/ferramentas/en/<slug>.md
+ */
+const ferramentas = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/ferramentas' }),
+  schema: z.object({
+    /** Repository-style name, shown as ~/<name>. */
+    name: z.string(),
+    summary: z.string(),
+    /** 2–4 short feature lines. */
+    highlights: z.array(z.string()).min(1).max(4),
+    stack: z.array(z.string()).min(1),
+    repo: z.url(),
+    order: z.number().int(),
+  }),
+});
+
+export const collections = { projetos, ferramentas };
