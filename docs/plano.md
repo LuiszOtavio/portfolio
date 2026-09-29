@@ -25,7 +25,7 @@ Cada etapa termina com `npm run build` passando, uma verificação no navegador 
    *Nota:* o projeto usa Astro 7.3.5 + Tailwind 4.3.3, o que exige Node 22.12 ou superior (o ambiente está com Node 24).
 2. ✅ **[CONCLUÍDA em 2026-09-29]** **Header + tema + idioma:** `Header.astro` com o nome, os links âncora, o seletor PT/EN, o botão de tema e o botão "Baixar CV" sempre visível. Configuro o i18n e crio `src/pages/en/index.astro`.
    → *No navegador:* alternar o tema, trocar para `/en/` e ver os textos do header mudarem.
-3. **Hero:** `Hero.astro` com o nome, a headline e a proposta de valor (PT/EN), mais os botões [Baixar CV] [Contato] [GitHub]. Tudo cabe na primeira dobra em 375px.
+3. ✅ **[CONCLUÍDA em 2026-09-29]** **Hero:** `Hero.astro` com o nome, a headline e a proposta de valor (PT/EN), mais os botões [Baixar CV] [Contato] [GitHub]. Tudo cabe na primeira dobra em 375px.
    → *No navegador:* a primeira dobra completa nas duas línguas.
 4. **Sobre + Experiência:** `About.astro` e `Timeline.astro` (Biti9, Fev/2025 – atual, com os 5 bullets do briefing). O texto em inglês sai da tradução fiel do briefing.
    → *No navegador:* as seções renderizadas e a timeline legível no mobile.

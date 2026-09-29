@@ -5,8 +5,14 @@ export const en: Record<TranslationKey, string> = {
   'meta.description':
     'Automation & Cloud Support · Python · UiPath · Azure — transitioning into DevOps',
 
+  'hero.role': 'Support Analyst @ Biti9',
   'hero.headline': 'Automation & Cloud Support · Python · UiPath · Azure —',
   'hero.headlineHighlight': 'transitioning into DevOps',
+  'hero.valueProp':
+    'I keep business-critical automations running in production for agribusiness, financial and infrastructure companies — from VPN and Azure diagnostics down to the code fix.',
+  'hero.contact': 'Contact',
+  'hero.github': 'GitHub',
+  'hero.newTab': '(opens in a new tab)',
 
   'nav.label': 'Main navigation',
   'nav.about': 'About',
@@ -21,6 +27,4 @@ export const en: Record<TranslationKey, string> = {
   'theme.toggle': 'Toggle light/dark theme',
 
   'cv.label': 'Download CV',
-  // TODO: switch to the EN PDF once it exists (briefing: [PENDENTE])
-  'cv.href': '/cv/cv-luis-otavio-batista-pt.pdf',
 };

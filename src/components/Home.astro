@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { useTranslations, type Lang } from '../i18n/utils';
+import Hero from './Hero.astro';
 
 interface Props {
   lang: Lang;
@@ -11,12 +12,7 @@ const t = useTranslations(lang);
 ---
 
 <BaseLayout lang={lang} title={t('meta.title')} description={t('meta.description')}>
-  <main class="mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col justify-center px-4 sm:px-6">
-    <p class="font-mono text-sm text-primary">~/portfolio</p>
-    <h1 class="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">Luis Otávio Batista</h1>
-    <p class="mt-4 text-muted">
-      {t('hero.headline')}
-      <span class="text-accent">{t('hero.headlineHighlight')}</span>
-    </p>
+  <main>
+    <Hero lang={lang} />
   </main>
 </BaseLayout>

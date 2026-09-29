@@ -1,5 +1,8 @@
 ---
 import { languages, useTranslations, type Lang } from '../i18n/utils';
+import { profile } from '../data/profile';
+import ButtonLink from './ButtonLink.astro';
+import Icon from './Icon.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import ThemeToggle from './ThemeToggle.astro';
 
@@ -52,16 +55,10 @@ const sections = [
     <div class="flex items-center gap-1 sm:gap-2">
       <LanguageSwitcher label={t('lang.label')} />
       <ThemeToggle label={t('theme.toggle')} />
-      <a
-        href={t('cv.href')}
-        download
-        class="ml-1 inline-flex items-center gap-1.5 rounded-md bg-primary-strong px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-primary-strong/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-      >
-        <svg class="hidden size-4 sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path>
-        </svg>
+      <ButtonLink href={profile.cv[lang]} download={profile.cvDownloadName} size="sm" class="ml-1">
+        <Icon name="download" class="hidden size-4 sm:block" />
         {t('cv.label')}
-      </a>
+      </ButtonLink>
     </div>
   </div>
 </header>
