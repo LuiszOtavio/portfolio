@@ -30,7 +30,7 @@ Cada etapa termina com `npm run build` passando, uma verificação no navegador 
    *Ajustes validados:* cargo sem o nome da empresa; o parágrafo usa o resumo do CV em vez da proposta de valor do briefing; CV em `public/cv/Curriculo Luis Otávio.pdf`.
 4. ✅ **[CONCLUÍDA em 2026-09-29]** *(textos baseados no CV atualizado, sem UiPath)* **Sobre + Experiência:** `About.astro` e `Timeline.astro` (Biti9, Fev/2025 – atual, com os 5 bullets do briefing). O texto em inglês sai da tradução fiel do briefing.
    → *No navegador:* as seções renderizadas e a timeline legível no mobile.
-5. **Skills + Formação/Certificações/Idiomas:** `SkillGroup.astro`, com os grupos por categoria e um selo visual "em estudo" para Terraform, CI/CD e Kubernetes. `Education.astro` traz a Fatec, a ETEC, o TOEIC 820, o inglês avançado e AZ-900/AZ-104 "em preparação".
+5. ✅ **[CONCLUÍDA em 2026-09-29]** *(implementado como `Skills.astro` + `Badge.astro`; UiPath mantido só nas skills, fora da headline)* **Skills + Formação/Certificações/Idiomas:** `SkillGroup.astro`, com os grupos por categoria e um selo visual "em estudo" para Terraform, CI/CD e Kubernetes. `Education.astro` traz a Fatec, a ETEC, o TOEIC 820, o inglês avançado e AZ-900/AZ-104 "em preparação".
    → *No navegador:* as duas seções completas, sem barras de porcentagem.
 6. **Projetos (coleção + cards):** a content collection `projetos` com schema Zod (title, summary, problem, stack, links, lang, order), o `ProjectCard.astro` e um grid que funciona bem com 1 a 10 itens. Adiciono o projeto nº 1 (o portfólio) em PT e EN.
    → *No navegador:* o card na home.

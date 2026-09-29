@@ -1,0 +1,40 @@
+---
+import { skills } from '../data/skills';
+import { useTranslations, type Lang } from '../i18n/utils';
+import Badge from './Badge.astro';
+import Section from './Section.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Section id="skills" title={t('nav.skills')}>
+  <div class="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      skills[lang].map((group) => (
+        <div>
+          <h3 class="flex items-center gap-2 font-mono text-sm font-medium tracking-wide text-muted uppercase">
+            {group.title}
+            {group.studying && <Badge>{t('status.studying')}</Badge>}
+          </h3>
+          <ul class="mt-4 flex flex-wrap gap-2">
+            {group.items.map((item) => (
+              <li
+                class:list={[
+                  'rounded-md border px-3 py-1.5 text-sm',
+                  group.studying ? 'border-dashed border-border text-muted' : 'border-border bg-surface',
+                ]}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</Section>

@@ -1,0 +1,67 @@
+---
+import { education } from '../data/education';
+import { useTranslations, type Lang } from '../i18n/utils';
+import Badge from './Badge.astro';
+import Section from './Section.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const { degrees, certifications, languages } = education[lang];
+
+const subheading = 'font-mono text-sm font-medium tracking-wide text-muted uppercase';
+---
+
+<Section id="education" title={t('education.title')}>
+  <div class="grid gap-12 lg:grid-cols-[3fr_2fr]">
+    <div>
+      <h3 class={subheading}>{t('education.degrees')}</h3>
+      <ul class="mt-4 space-y-6">
+        {
+          degrees.map((degree) => (
+            <li>
+              <p class="text-lg font-semibold">{degree.course}</p>
+              <p class="mt-1 text-primary">{degree.institution}</p>
+              {degree.institutionFull && <p class="text-sm text-muted">{degree.institutionFull}</p>}
+              <p class="mt-1 font-mono text-sm text-muted">{degree.completed}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="space-y-10">
+      <div>
+        <h3 class={subheading}>{t('education.certifications')}</h3>
+        <ul class="mt-4 space-y-3">
+          {
+            certifications.map((cert) => (
+              <li class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                <span class="font-medium">{cert.name}</span>
+                {cert.detail && <span class="font-mono text-sm text-primary">{cert.detail}</span>}
+                {cert.inPreparation && <Badge>{t('status.inPreparation')}</Badge>}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class={subheading}>{t('education.languages')}</h3>
+        <ul class="mt-4 space-y-3">
+          {
+            languages.map((language) => (
+              <li>
+                <span class="font-medium">{language.name}</span>
+                <span class="text-muted"> — {language.level}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</Section>
