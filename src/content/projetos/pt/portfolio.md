@@ -1,6 +1,6 @@
 ---
 title: Portfólio pessoal
-summary: Site bilíngue (PT/EN) e estático, feito com Astro e Tailwind, com deploy planejado no Azure Static Web Apps.
+summary: Site bilíngue (PT/EN) e estático, feito com Astro e Tailwind, com deploy publicado no Azure Static Web Apps.
 stack: [Astro, Tailwind CSS, TypeScript, Azure Static Web Apps]
 order: 1
 demo: /
