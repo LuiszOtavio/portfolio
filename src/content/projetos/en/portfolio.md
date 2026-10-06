@@ -1,9 +1,10 @@
 ---
 title: Personal portfolio
-summary: Static bilingual (PT/EN) site built with Astro and Tailwind, with deployment planned on Azure Static Web Apps.
+summary: Static bilingual (PT/EN) site built with Astro and Tailwind, deployed on Azure Static Web Apps.
 stack: [Astro, Tailwind CSS, TypeScript, Azure Static Web Apps]
 order: 1
 demo: /en/
+repo: https://github.com/LuiszOtavio/portfolio
 image: ../../../img/projetos/portfolio-home-en.png
 imageAlt: Portfolio home page showing the name Luis Otávio Batista, the headline and the Download CV, Contact and GitHub buttons on a dark background
 ---
