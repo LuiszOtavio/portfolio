@@ -19,3 +19,4 @@ Recrutadores e tech leads leem um portfólio de formas diferentes. O recrutador 
 - **Zero JavaScript por padrão:** o único script da página é o que alterna entre tema claro e escuro.
 - **Dois idiomas com rotas próprias:** `/` em português e `/en/` em inglês, usando o roteamento nativo do Astro.
 - **Conteúdo separado do layout:** experiência, skills e formação ficam em arquivos de dados em TypeScript, e cada projeto é um arquivo Markdown validado por schema.
+- **Deploy automático:** cada push na branch `main` dispara um workflow do GitHub Actions que gera o site e publica no Azure Static Web Apps.

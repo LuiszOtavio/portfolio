@@ -54,7 +54,7 @@ const t = useTranslations(lang);
       </p>
 
       <div class="fade-up mt-8 flex flex-wrap gap-3 sm:mt-10" style="--delay: 240ms">
-        <ButtonLink href={profile.cv} download={profile.cvDownloadName}>
+        <ButtonLink href={profile.cv[lang]} download={profile.cvDownloadName[lang]}>
           <Icon name="download" />
           {t('cv.label')}
         </ButtonLink>

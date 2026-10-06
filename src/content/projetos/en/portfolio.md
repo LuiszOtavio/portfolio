@@ -19,3 +19,4 @@ Recruiters and tech leads read a portfolio differently. A recruiter needs to und
 - **Zero JavaScript by default:** the only script on the page toggles between the light and dark themes.
 - **Two languages with their own routes:** `/` in Portuguese and `/en/` in English, using Astro's built-in routing.
 - **Content separate from layout:** experience, skills and education live in TypeScript data files, and each project is a Markdown file validated by a schema.
+- **Automated deployment:** every push to the `main` branch triggers a GitHub Actions workflow that builds the site and publishes it to Azure Static Web Apps.

@@ -31,8 +31,8 @@ const channels = [
     icon: 'download' as const,
     label: t('contact.cv'),
     value: 'PDF',
-    href: profile.cv,
-    download: profile.cvDownloadName,
+    href: profile.cv[lang],
+    download: profile.cvDownloadName[lang],
   },
 ];
 
